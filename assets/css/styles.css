@@ -447,7 +447,7 @@ nav a:not(.cta):hover {
   pointer-events: none;
   display: none;
   width: 2rem;
-  /* height: 100%; */
+  filter: invert(77%) sepia(0%) saturate(72%) hue-rotate(246deg) brightness(101%) contrast(90%);
 }
 
 .nav-logo, .footer-logo {
