@@ -601,9 +601,11 @@ nav a:not(.cta):hover {
     gap: 4rem;
   }
   .points::before {
-    width: 50%;
-    left: 25%;
-    transform: rotate(90deg);
+    width: 0.5rem;
+    height: max(80%, 10rem);
+    left: 50%;
+    top: 12%;
+    transform: translateX(-50%);
   }
   .art1, .art2 {
     transform: translateY(0%);
@@ -659,6 +661,9 @@ nav a:not(.cta):hover {
   }
   nav a {
     width: 100%;
+  }
+  nav a:not(.cta):hover {
+    color: var(--color-primary);
   }
   .nav-line {
     display: block;
