@@ -47,10 +47,15 @@
     
   </section>
   <section class="half-gray">
-    <div class="wrapper">
-      <form id="shortener">
-        <input type="text" id="url" placeholder="Shorten a link here...">
-        <input type="submit" value="Shorten it!">
+    <div class="wrapper" id="shortSection">
+      <form id="shortener" class="" name="shortener" onsubmit="validatUrl();return false">
+        <input type="text" id="url" placeholder="Shorten a link here..." name="url">
+        <input type="submit" value="Shorten it!" id="submit">
+        <div class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
       </form>
     </div>
   </section>
