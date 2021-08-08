@@ -324,9 +324,13 @@ input[type="submit"], .copy {
 /* Spinner made by: https://tobiasahlin.com/spinkit/*/
 
 .spinner {
-  width: 70px;
   text-align: center;
   display: none;
+  /* padding: 1rem; */
+}
+
+.spinner, input[type="submit"] {
+  min-width: 20%;
 }
 
 .spinner > div {
@@ -397,6 +401,10 @@ input[type="submit"], .copy {
   padding: 0.5rem 1rem;
 }
 
+.copy:focus {
+  background-color: var(--color-secondary);
+}
+
 /* ----- 3.4 Advanced ----- */
 
 .advanced {
@@ -439,6 +447,10 @@ input[type="submit"], .copy {
   top: -2.5rem;
   display: block;
   text-align: center;
+}
+
+.art0, .art1, .art2 {
+  flex: 1 1 0px;
 }
 
 .art0::after {

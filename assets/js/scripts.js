@@ -60,7 +60,7 @@ function renderURL(data) {
     <span class="orgLink">${original_link}</span>
     <div class="shortlink">
       <span id="${id}">${short_link}</span>
-      <button type="button" class="copy" onclick="copyURL(${id})">Copy</button>
+      <button type="button" class="copy" onclick="copyURL(${id})" id="${id}btn">Copy</button>
     </div>
   </div>
   `;
@@ -70,10 +70,12 @@ function renderURL(data) {
 
 function copyURL(id) {
   let shortLink = document.getElementById(id.id);
-  
+  let btn = document.getElementById(id.id + "btn");
 
   navigator.clipboard.writeText(shortLink.textContent).then(function() {
-    alert('Successfully copied ' + shortLink.textContent + 'to clipboard!');
+    if (btn.innerText == "Copy") {
+      btn.innerText = "Copied!";
+    }
   }, function(err) {
     console.error('Async: Could not copy text: ', err);
   });
