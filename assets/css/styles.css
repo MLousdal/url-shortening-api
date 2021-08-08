@@ -376,6 +376,10 @@ input[type="submit"], .copy {
 
 .orgLink {
   color: var(--font-color-heavy);
+  max-width: 40%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .shortlink {
@@ -698,12 +702,11 @@ nav a:not(.cta):hover {
     padding: 1rem;
     flex-direction: column;
     text-align: left;
-    justify-content: flex-start;
+    align-items: flex-start;
     line-height: 2.5;
-    text-overflow: ellipsis;
   }
   .orgLink {
-    width: 100%;
+    max-width: 100%;
     border-bottom: 1px solid var(--background-color);
   }
   .shortlink {

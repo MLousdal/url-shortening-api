@@ -24,6 +24,8 @@ function validatUrl() {
   if (urlValue == null || urlValue.trim() == "") {
     shortener.classList.add("error");
   } else {
+    loading.style.display = "inline-block";
+    submit.style.display = "none";
     shortenURL(urlValue);
   }
 }
@@ -32,9 +34,6 @@ function validatUrl() {
 // Connect to API and return new link
 function shortenURL(urlValue) {
   let api = "https://api.shrtco.de/v2/shorten";
-
-  loading.style.display = "inline-block";
-  submit.style.display = "none";
   
   fetch(api, {
     method: "POST",
@@ -49,6 +48,7 @@ function shortenURL(urlValue) {
 
 // Render the links as elementes on the page
 function renderURL(data) {
+  let id = data.result.code;
   let short_link = data.result.full_short_link;
   let original_link = data.result.original_link;
 
@@ -57,13 +57,25 @@ function renderURL(data) {
 
   linkElm = `
   <div class="linkElm">
-    <span class="orgLink">${short_link}</span>
+    <span class="orgLink">${original_link}</span>
     <div class="shortlink">
-      <span>${original_link}</span>
-      <button type="button" class="copy">Copy</button>
+      <span id="${id}">${short_link}</span>
+      <button type="button" class="copy" onclick="copyURL(${id})">Copy</button>
     </div>
   </div>
   `;
 
   shortSection.innerHTML += linkElm;
+}
+
+function copyURL(id) {
+  let shortLink = document.getElementById(id.id);
+  
+
+  navigator.clipboard.writeText(shortLink.textContent).then(function() {
+    alert('Successfully copied ' + shortLink.textContent + 'to clipboard!');
+  }, function(err) {
+    console.error('Async: Could not copy text: ', err);
+  });
+
 }
