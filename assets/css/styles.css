@@ -254,8 +254,8 @@ a {
 .hero img {
   width: 100%;
   position: relative;
-  right: -15%;
-  transform: scale(1.2);
+  right: -25%;
+  transform: scale(1.5);
 }
 
 /* ----- 3.3 Shortener ----- */
@@ -687,6 +687,8 @@ nav a:not(.cta):hover {
   }
   .hero img {
     padding-bottom: 2rem;
+    transform: scale(1.2);
+    right: -15%;
   }
   .hero-text { 
     text-align: center;
