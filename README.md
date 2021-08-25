@@ -4,7 +4,7 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 
 ![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)
 
-### The challenge
+## The challenge
 
 Users should be able to:
 
@@ -15,18 +15,7 @@ Users should be able to:
 - Receive an error message when the `form` is submitted if:
   - The `input` field is empty
 
-### Links
+## Links
 
 - Solution URL: [Here](https://www.frontendmentor.io/solutions/great-challenge-wFLTY187F)
 - Live Site URL: [Here](https://url-shortening-api-master-rust.vercel.app/)
-
-## My process
-
-### Built with
-
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- vanilla javaScript
