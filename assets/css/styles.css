@@ -239,7 +239,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: min(10vh, 6rem);
+  padding-block: min(20vh, 8rem);
   gap: 2rem;
 }
 
@@ -293,7 +293,7 @@ input[type="text"] {
   width: calc(100% - 4rem);
 }
 
-input[type="submit"], .copy {
+#submit, .copy {
   padding: 1rem 2rem;
   background-color: var(--color-primary);
   border-radius: 10px;
@@ -329,7 +329,7 @@ input[type="submit"], .copy {
   /* padding: 1rem; */
 }
 
-.spinner, input[type="submit"] {
+.spinner, #submit {
   min-width: 20%;
 }
 
@@ -401,7 +401,7 @@ input[type="submit"], .copy {
   padding: 0.5rem 1rem;
 }
 
-.copy:focus {
+.sec-color {
   background-color: var(--color-secondary);
 }
 
@@ -630,7 +630,7 @@ nav a:not(.cta):hover {
   color: rgb(255, 255, 255);
 }
 
-.cta:hover, input[type="submit"]:hover, .copy:hover {
+.cta:hover, #submit:hover, .copy:hover {
   background-color: rgb(148,231,231);
 }
 

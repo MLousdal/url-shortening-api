@@ -1,11 +1,11 @@
 // Toggle burgermenu
 function burgerToggle() {
-    const navLinks = document.querySelector("#nav-links");
-    if (navLinks.style.display === "block") {
-        navLinks.style.display = "";
-    } else {
-        navLinks.style.display = "block";
-    }
+  const navLinks = document.querySelector("#nav-links");
+  if (navLinks.style.display === "block") {
+    navLinks.style.display = "";
+  } else {
+    navLinks.style.display = "block";
+  }
 }
 
 // URL shortening functionality
@@ -14,9 +14,9 @@ const shortener = document.querySelector("#shortener");
 const loading = document.querySelector(".spinner");
 const submit = document.querySelector("#submit");
 
-
 // Validate url input
-function validatUrl() {
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
   const urlValue = document.querySelector("#url").value;
 
   shortener.classList.remove("error");
@@ -28,22 +28,21 @@ function validatUrl() {
     submit.style.display = "none";
     shortenURL(urlValue);
   }
-}
-
+});
 
 // Connect to API and return new link
 function shortenURL(urlValue) {
   let api = "https://api.shrtco.de/v2/shorten";
-  
+
   fetch(api, {
     method: "POST",
     body: "url=" + encodeURIComponent(urlValue),
     headers: {
-      'Content-type': 'application/x-www-form-urlencoded'
-  }
+      "Content-type": "application/x-www-form-urlencoded",
+    },
   })
-  .then(response => response.json())
-  .then(data => renderURL(data))
+    .then((response) => response.json())
+    .then((data) => renderURL(data));
 }
 
 // Render the links as elementes on the page
@@ -66,18 +65,23 @@ function renderURL(data) {
   `;
 
   shortSection.innerHTML += linkElm;
+  let stateObj = { id: "100" };
+  window.history.replaceState(stateObj, "", "");
 }
 
 function copyURL(id) {
   let shortLink = document.getElementById(id.id);
   let btn = document.getElementById(id.id + "btn");
 
-  navigator.clipboard.writeText(shortLink.textContent).then(function() {
-    if (btn.innerText == "Copy") {
-      btn.innerText = "Copied!";
+  navigator.clipboard.writeText(shortLink.textContent).then(
+    function () {
+      if (btn.innerText == "Copy") {
+        btn.innerText = "Copied!";
+        btn.classList.add("sec-color");
+      }
+    },
+    function (err) {
+      console.error("Async: Could not copy text: ", err);
     }
-  }, function(err) {
-    console.error('Async: Could not copy text: ', err);
-  });
-
+  );
 }
